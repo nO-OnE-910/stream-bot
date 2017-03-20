@@ -14,6 +14,9 @@ var bot = new Discord.Client();
 var inChannel = false;
 
 bot.on("ready", function () {
+    //var i = bot.fetchInvite("https://discord.gg/x6A6mxd");
+    //var i = bot.fetchInvite("https://discord.gg/P55RE");
+    //i.guild.channels.join();
     console.log("Bot is up and running in " + bot.channels.length + " channels");
 });
 
@@ -27,7 +30,7 @@ bot.on("message", function (message) {
         //console.log("Incoming command '" + message.content + "' from user " + message.author);
         var cmdTxt = message.content.split(" ")[0].substring(1);
         var suffix = message.content.substring(cmdTxt.length + 2);
-        if (message.content.indexOf(bot.user.mention()) == 0){
+        if (false && message.content.indexOf(bot.user.mention()) == 0){
             try {
                 cmdTxt = message.content.split(" ")[1];
                 suffix = message.content.substring(bot.user.mention().length+cmdTxt.length + 2);
@@ -137,4 +140,5 @@ bot.on("message", function (message) {
     }
 });
 
+console.log(config.email);
 bot.login(config.email, config.password);
